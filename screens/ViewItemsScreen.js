@@ -1,0 +1,101 @@
+import React, { Component } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  Alert,
+} from "react-native";
+import firebase from 'firebase'
+
+export default class EnterItemsScreen extends Component {
+  render() {
+    return (
+      <View>
+        <View style={styles.logOutContainer}>
+        <TouchableOpacity 
+          style={styles.logOutButton,{backgroundColor:"#EEF6E9"}}
+          onPress = {() => {
+              this.props.navigation.navigate('WelcomeScreen')
+              firebase.auth().signOut()
+          }}>
+         <Text style={{fontColor:'green',fontWeight:"bold"}}>Log Out</Text>
+          </TouchableOpacity>
+        </View>
+        
+           
+      <View style={styles.container}>
+     <Text style={styles.title}>View Your Important Items To Buy</Text>
+  
+      </View>
+     
+     
+    </View>
+    
+
+    );
+  }
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#62C4DC",
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 10,
+  },
+  title: {
+    fontSize: 65,
+    fontWeight: "300",
+    paddingBottom: 30,
+    color: "black",
+  },
+  formTextInput:{
+    width:"75%",
+    height:35,
+    alignSelf:'center',
+    borderColor:'#62C4DC',
+    borderRadius:10,
+    borderWidth:3,
+    marginTop:20,
+    padding:10,
+  },
+  button:{
+    width:"75%",
+    height:50,
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:10,
+    borderWidth:3,
+    backgroundColor:"#62C4DC",
+    shadowColor: "#000",
+    marginLeft:200,
+    shadowOffset: {
+       width: 0,
+       height: 8,
+    },
+    shadowOpacity: 0.44,
+    shadowRadius: 10.32,
+    elevation: 16,
+    marginTop:20
+    },
+    logOutButton : {
+      height:30,
+      width:80,
+      marginLeft:-1050,
+     
+     borderColor:"green",
+      borderWidth:2
+    },
+    logOutContainer: {
+      flex: 1,
+      backgroundColor:"#EEF6E9",
+      alignItems: "center",
+      justifyContent: "center",
+      
+    },
+   
+});
+
